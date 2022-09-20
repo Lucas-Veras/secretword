@@ -41,7 +41,7 @@ function App() {
 
     const { word, category } = pickWordAndCategory();
     let wordLetters = word.toLowerCase().split('');
-
+    
     setPickedCategory(category);
     setPickedWord(word);
     setLetters(wordLetters);
@@ -53,7 +53,6 @@ function App() {
     if (guessedLetters.includes(normalizedLetter || wrongLetters.includes(normalizedLetter))) {
       return;
     }
-
     if (letters.includes(normalizedLetter)) {
       setGuessedLetters((actualGuessedLetters) => [
         ...actualGuessedLetters, normalizedLetter,
@@ -62,7 +61,6 @@ function App() {
       setWrongLetters((actualWrongLetters) => [
         ...actualWrongLetters, normalizedLetter,
       ]);
-      //(actualWrongLetters.includes(normalizedLetter)
       setGuesses(actualGuesses => actualGuesses - 1);
     }
   }
@@ -87,14 +85,11 @@ function App() {
 
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)];
-
     if (guessedLetters.length === uniqueLetters.length && gameStage === stages[1].name) {
       setScore(actualScore => actualScore += 100);
       startGame();
     }
   }, [guessedLetters, letters, startGame, gameStage]);
-
-
 
   return (
     <div className="App">

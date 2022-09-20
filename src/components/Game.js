@@ -3,7 +3,6 @@ import './Game.css';
 
 const Game = ({
     verifyLetter,
-    pickedWord,
     pickedCategory,
     letters,
     guessedLetters,
@@ -21,7 +20,7 @@ const Game = ({
         letterInputRef.current.focus();
     }
 
-    
+
     return (
         <div className='game'>
             <p className='points'>
